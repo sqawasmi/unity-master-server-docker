@@ -1,0 +1,93 @@
+--- RakNet/Sources/DS_BinarySearchTree.h	2014-06-12 11:56:36.560714519 +0000
++++ RakNet/Sources/DS_BinarySearchTree.h	2014-06-12 11:51:45.436714519 +0000
+@@ -166,12 +166,12 @@
+ 			if ( current->left == 0 )
+ 				left_height = 0;
+ 			else
+-				left_height = Height( current->left );
++				left_height = this->Height( current->left );
+ 				
+ 			if ( current->right == 0 )
+ 				right_height = 0;
+ 			else
+-				right_height = Height( current->right );
++				right_height = this->Height( current->right );
+ 				
+ 			if ( right_height - left_height == 2 )
+ 			{
+@@ -199,7 +199,7 @@
+ 			if ( current == this->root )
+ 				break;
+ 				
+-			current = FindParent( *( current->item ) );
++			current = this->FindParent( *( current->item ) );
+ 			
+ 		}
+ 	}
+@@ -226,7 +226,7 @@
+ 		if ( A == 0 )
+ 			return false;
+ 			
+-		return Height( A->right ) > Height( A->left );
++		return this->Height( A->right ) > this->Height( A->left );
+ 	}
+ 	
+ 	template <class BinarySearchTreeType>
+@@ -235,7 +235,7 @@
+ 		if ( A == 0 )
+ 			return false;
+ 			
+-		return Height( A->left ) > Height( A->right );
++		return this->Height( A->left ) > this->Height( A->right );
+ 	}
+ 	
+ 	template <class BinarySearchTreeType>
+@@ -272,8 +272,8 @@
+ 		
+ 		*/
+ 		
+-		B = FindParent( *( C->item ) );
+-		A = FindParent( *( B->item ) );
++		B = this->FindParent( *( C->item ) );
++		A = this->FindParent( *( B->item ) );
+ 		D = C->right;
+ 		
+ 		if ( A )
+@@ -336,8 +336,8 @@
+ 		
+ 		*/
+ 		
+-		B = FindParent( *( C->item ) );
+-		A = FindParent( *( B->item ) );
++		B = this->FindParent( *( C->item ) );
++		A = this->FindParent( *( B->item ) );
+ 		D = C->left;
+ 		
+ 		if ( A )
+@@ -830,7 +830,7 @@
+ 					else
+ 					{
+ 						//  Otherwise I've done everything I can.  Move up the tree one node
+-						parent = FindParent( *( current->item ) );
++						parent = this->FindParent( *( current->item ) );
+ 						current = parent;
+ 						just_printed = false;
+ 					}
+@@ -887,7 +887,7 @@
+ 				else
+ 				{
+ 					//  Otherwise I've done everything I can.  Move up the tree one node
+-					parent = FindParent( *( current->item ) );
++					parent = this->FindParent( *( current->item ) );
+ 					current = parent;
+ 				}
+ 		}
+@@ -1106,7 +1106,7 @@
+ 					else // leaf
+ 					{
+ 						// Not root node so must have a parent
+-						parent = FindParent( *( current->item ) );
++						parent = this->FindParent( *( current->item ) );
+ 						
+ 						if ( ( parent->left ) == current )
+ 							parent->left = 0;
