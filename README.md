@@ -1,4 +1,4 @@
-Docker build for Apache TrafficServer (ATS)
+Docker build for Unity MasterServer
 ================================
 
 This repository provides Dockerfile for [Unity MasterServer][0] 
