@@ -13,8 +13,8 @@ Built images are uploaded to [index.docker.io][1]
 
  - Install Docker: [http://docs.docker.io/][2]
  - Execute
- `docker run -d --name MasterServer -p 23466:23466 shaker/unity-master-server`
- - MasterServer will be running on 23466
+ `docker run -d --name MasterServer -p 23466:23466/udp shaker/unity-master-server`
+ - MasterServer will be running on 23466 UDP port
  - Stop and start again
    - `docker stop MasterServer`
    - `docker start MasterServer`
